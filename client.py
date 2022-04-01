@@ -3,7 +3,11 @@ import sys
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-host = sys.argv[1]
+if len(sys.argv) > 1:
+    host = sys.argv[1]
+else:
+    host = socket.gethostname()
+
 port = 3003
 
 s.connect((host,port))
