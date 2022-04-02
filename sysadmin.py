@@ -8,7 +8,7 @@ from datetime import datetime
 
 
 FILE_PATH = 'collected_data.txt'
-SYS_LOG_FILE = ''
+SYS_LOG_FILE = '/var/log/messages'
 
 def write_to_file(inp):
     '''Writes to the FILE and also appends new line at end'''
@@ -35,15 +35,19 @@ def re_wtf(word : str):
 def main():
     hostname = getop('hostname -I')
     write_to_file(f'Data For - {hostname}')
+    write_to_file('\n')
 
     ram_free = getop('free -h')
     write_to_file(f'Free RAM Before Reboot: \n{ram_free}')
+    write_to_file('\n')
 
     disk_free = getop('df -h')
     write_to_file(f'Free Disk Space: \n{disk_free}')
+    write_to_file('\n')
 
     top_5_cpu = getop('ps -eo pid,ppid,cmd,%cpu,%mem--sort=-%cpu | head -n5')
     write_to_file(f'5 Top CPU Consuming Processes:\n{top_5_cpu}')
+    write_to_file('\n')
 
     #getting CPU info
     write_to_file('CPU Information')
@@ -51,6 +55,7 @@ def main():
     for el in to_search:
         re_wtf(el)
 
+    write_to_file('\n')
     logs = getop(f'tail -n10 {SYS_LOG_FILE}')
     write_to_file(f'Last 10 System Logs:\n{logs}')
     #Write the data to File.
