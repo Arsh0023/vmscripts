@@ -3,14 +3,14 @@ from datetime import date
 
 #This will recieve the file once connection is made.
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = ''
+host = '0.0.0.0'
 port = 3003
 s.bind((host,port))
-s.listen(1)
+s.listen(5)
 print(f'Waiting for incoming connections on port {port}')
 
 conn , addr = s.accept()
-file = open(f'collected_data_{addr}_{date.today()}.txt','wb')
+file = open(f'collected_data_{date.today()}.txt','wb')
 
 with conn:
     print(f'Connected by {addr}')
