@@ -3,7 +3,7 @@ from datetime import date
 
 #This will recieve the file once connection is made.
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = socket.gethostbyname()
+host = ''
 port = 3003
 s.bind((host,port))
 s.listen(1)
