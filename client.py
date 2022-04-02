@@ -11,7 +11,7 @@ else:
 port = 3003
 
 s.connect((host,port))
-print(f'Connection to the server - {host} Established! File ready to be send')
+print(f'Connection to the server - {host} Established! File ready to send')
 
 #this will send the file once the server is rebooted.
 file_to_send = open('collected_data.txt','rb')
