@@ -9,6 +9,10 @@ from datetime import datetime
 
 FILE_PATH = 'collected_data.txt'
 SYS_LOG_FILE = '/var/log/messages'
+try:
+    os.remove(FILE_PATH)
+except:
+    pass
 
 def write_to_file(inp):
     '''Writes to the FILE and also appends new line at end'''
