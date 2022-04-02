@@ -45,7 +45,7 @@ def main():
     write_to_file(f'Free Disk Space: \n{disk_free}')
     write_to_file('\n')
 
-    top_5_cpu = getop('ps -eo pid,ppid,cmd,%cpu,%mem--sort=-%cpu | head -n5')
+    top_5_cpu = getop('ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%cpu | head -n5')
     write_to_file(f'5 Top CPU Consuming Processes:\n{top_5_cpu}')
     write_to_file('\n')
 
